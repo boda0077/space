@@ -1,12 +1,40 @@
 @import "tailwindcss";
 
 body {
-  margin: 0;
+  margin: auto;
   max-width: 1440px;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  transition: background-image 0.5s ease-in-out;
+  background-color: #0b0d17;
+  transition: background-image 0.3s ease-in-out;
+}
+
+/* Preload all background images */
+body::before {
+  content: "";
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  background:
+    url("assets/home/background-home-desktop.jpg"),
+    url("assets/home/background-home-tablet.jpg"),
+    url("assets/home/background-home-mobile.jpg"),
+    url("assets/destination/background-destination-desktop.jpg"),
+    url("assets/destination/background-destination-tablet.jpg"),
+    url("assets/destination/background-destination-mobile.jpg"),
+    url("assets/crew/background-crew-desktop.jpg"),
+    url("assets/crew/background-crew-tablet.jpg"),
+    url("assets/crew/background-crew-mobile.jpg"),
+    url("assets/technology/background-technology-desktop.jpg"),
+    url("assets/technology/background-technology-tablet.jpg"),
+    url("assets/technology/background-technology-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: 1px 1px;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* HOME BACKGROUNDS */

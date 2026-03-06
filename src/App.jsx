@@ -1,4 +1,4 @@
-import {  Routes, Route, useLocation, HashRouter } from "react-router-dom";
+import { Routes, Route, useLocation, HashRouter } from "react-router-dom";
 import { useEffect } from "react";
 
 import Home from "./pages/home";
@@ -8,9 +8,8 @@ import Technology from "./pages/technology";
 import Destination from "./pages/destination";
 
 // Wrapper component to handle body class
-function BodyWrapper() {
-
-   const location = useLocation();
+function BodyWrapper({ children }) {
+  const location = useLocation();
 
   useEffect(() => {
     // Remove all previous classes
@@ -27,6 +26,8 @@ function BodyWrapper() {
       document.body.classList.add("technology");
     }
   }, [location.pathname]);
+
+  return children;
 }
 
 function App() {

@@ -78,7 +78,7 @@ function Destination() {
         
         {/* Planet Selector */}
         <div className="flex max-md:justify-center max-sm:grid max-sm:grid-cols-2 gap-15">
-          {["europa","mars","moon","titan"].map((name, i) => (
+          {["moon","mars","europa","titan"].map((name, i) => (
             <span
               key={i}
               onClick={() => setIndex(i)}

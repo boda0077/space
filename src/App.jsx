@@ -8,19 +8,28 @@ import Technology from "./pages/technology";
 import Destination from "./pages/destination";
 
 // Wrapper component to handle body class
-function BodyWrapper({ children }) {
-  const location = useLocation();
+function BodyWrapper() {
+
+   const location = useLocation();
 
   useEffect(() => {
-    // Remove previous classes
-    document.body.className = "";
-
-    // Get path name (default to 'home' if '/')
-    const path = location.pathname.replace("/", "") || "home";
-
-    // Add class to body
-    document.body.classList.add(path);
-  }, [location]);
+    switch (location.pathname) {
+      case "/":
+        document.body.style.backgroundImage = 'url("/assets/home/background-home-desktop.jpg")';
+        break;
+      case "/destination":
+        document.body.style.backgroundImage = 'url("/assets/destination/background-destination-desktop.jpg")';
+        break;
+      case "/crew":
+        document.body.style.backgroundImage = 'url("/assets/crew/background-crew-desktop.jpg")';
+        break;
+      case "/technology":
+        document.body.style.backgroundImage = 'url("/assets/technology/background-technology-desktop.jpg")';
+        break;
+      default:
+        document.body.style.backgroundImage = '';
+    }
+  }, [location.pathname]);
 
   return children;
 }

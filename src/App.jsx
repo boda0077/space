@@ -13,25 +13,20 @@ function BodyWrapper() {
    const location = useLocation();
 
   useEffect(() => {
-    switch (location.pathname) {
-      case "/":
-        document.body.style.backgroundImage = 'url("/assets/home/background-home-desktop.jpg")';
-        break;
-      case "/destination":
-        document.body.style.backgroundImage = 'url("/assets/destination/background-destination-desktop.jpg")';
-        break;
-      case "/crew":
-        document.body.style.backgroundImage = 'url("/assets/crew/background-crew-desktop.jpg")';
-        break;
-      case "/technology":
-        document.body.style.backgroundImage = 'url("/assets/technology/background-technology-desktop.jpg")';
-        break;
-      default:
-        document.body.style.backgroundImage = '';
+    // Remove all previous classes
+    document.body.className = "";
+
+    // Add the page-specific class
+    if (location.pathname === "/") {
+      document.body.classList.add("home");
+    } else if (location.pathname === "/destination") {
+      document.body.classList.add("destination");
+    } else if (location.pathname === "/crew") {
+      document.body.classList.add("crew");
+    } else if (location.pathname === "/technology") {
+      document.body.classList.add("technology");
     }
   }, [location.pathname]);
-
-  return children;
 }
 
 function App() {

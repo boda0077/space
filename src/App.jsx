@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {  Routes, Route, useLocation, HashRouter } from "react-router-dom";
 import { useEffect } from "react";
 
 import Home from "./pages/home";
@@ -27,7 +27,7 @@ function BodyWrapper({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <BodyWrapper>
         <Routes>
           <Route
@@ -68,7 +68,7 @@ function App() {
           />
         </Routes>
       </BodyWrapper>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
